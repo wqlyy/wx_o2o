@@ -6,16 +6,14 @@ class Address extends Base{
     super();
   }
   setAddressInfo(res){
-    // console.log(res);
     let province = res.provinceName || res.province;
     let city = res.cityName || res.city;
-    let county = res.countyName || res.county;
+    let country = res.countyName || res.county;
     let detail = res.detailInfo || res.detail;
-    let totalDetail = city + county + detail;
+    let totalDetail = city + country + detail;
     if (!this.isCenterCity(province)){
       totalDetail = province + totalDetail;
     }
-    // console.log(totalDetail);
     return totalDetail;
   }
   /*是否为直辖市*/
@@ -41,16 +39,30 @@ class Address extends Base{
     this.request(params);
   }
   _setUpAddress(res){
+    console.log(res);
     let formData = {
       name:res.userName,
       province:res.provinceName,
       city:res.cityName,
-      county:res.countyName,
+      country:res.countyName,
       mobile:res.telNumber,
       detail:res.detailInfo
     }
 
     return formData;
+  }
+  getAddress(callback){
+    let that = this;
+    let params = {
+      url:'address',
+      callback(res){
+        if(res){
+          res.totalDetail = that.setAddressInfo(res);
+          callback&&callback(res);
+        }
+      }
+    }
+    this.request(params);
   }
 }
 

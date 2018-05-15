@@ -27,6 +27,9 @@ Page({
       account:options.account,
       orderStatus:0
     });
+    address.getAddress((res)=>{
+      this._bindAddressInfo(res);
+    })
   },
   editAddress(event){
     let that = this;
