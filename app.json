@@ -6,7 +6,8 @@
     "pages/category/index",
     "pages/cart/index",
     "pages/my/index",
-    "pages/order/index"
+    "pages/order/index",
+    "pages/pay-result/index"
   ],
   "window": {
     "navigationBarBackgroundColor": "#AB956D",

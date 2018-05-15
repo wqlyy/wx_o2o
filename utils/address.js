@@ -8,7 +8,7 @@ class Address extends Base{
   setAddressInfo(res){
     let province = res.provinceName || res.province;
     let city = res.cityName || res.city;
-    let country = res.countyName || res.county;
+    let country = res.countyName || res.country;
     let detail = res.detailInfo || res.detail;
     let totalDetail = city + country + detail;
     if (!this.isCenterCity(province)){
