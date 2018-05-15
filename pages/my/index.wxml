@@ -1,0 +1,2 @@
+<!--pages/my/index.wxml-->
+<view bindtap='getLogin'>获取Key</view>

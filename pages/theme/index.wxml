@@ -1,0 +1,10 @@
+<!--pages/theme/index.wxml-->
+<import src="../tpls/products/index.wxml" />
+<view class='container'>
+  <view class='theme-header'>
+    <image src='{{themeInfo.head_img.url}}'></image>
+  </view>
+  <view class='theme-main'>
+    <template is="products" data="{{productsArr:themeInfo.products}}"></template>
+  </view>
+</view>
